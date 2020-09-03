@@ -62,6 +62,9 @@ export class HomeComponent implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             formValue['imageUrl'] = url;
+            // this.lat = 11.193712907467816;
+            // this.lng = 106.5878921136777;
+            // this.ngOnInit();
             this.crudService.pushUrl(url).subscribe(res => {
               this.crudService.pullLatLng().subscribe(res => {
                 console.log("request: ", res.lat, res.lng);

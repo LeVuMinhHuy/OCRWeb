@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://45.119.81.84:5000/ocr',
+  apiUrl: 'http://localhost:5000/api',
+  // apiUrl: 'https://cors-anywhere.herokuapp.com/',
   firebaseConfig: {
     apiKey: "AIzaSyA1DQpPRfs9XxFc1RAOrRXY2Dn7o_iTiIQ",
     authDomain: "fir-ocr-ec83a.firebaseapp.com",
