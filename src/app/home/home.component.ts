@@ -52,6 +52,22 @@ export class HomeComponent implements OnInit {
     .addTo(this.map);
   }
 
+  ngSubmitOnInit(): void {
+    mapboxgl.accessToken = environment.mapboxAPI;
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: this.style,
+      zoom: 11,
+      center: [this.lng, this.lat]
+    });
+    // Add map controls
+    this.map.addControl(new mapboxgl.NavigationControl());
+
+    this.map = new mapboxgl.Marker()
+    .setLngLat([this.lng, this.lat])
+    .addTo(this.map);
+  }
+
   onSubmit(formValue) {
     this.isSubmitted = true;
 
@@ -70,7 +86,7 @@ export class HomeComponent implements OnInit {
                 console.log("request: ", res.lat, res.lng);
                 this.lat = res.lat;
                 this.lng = res.lng;
-                this.ngOnInit();
+                this.ngSubmitOnInit();
               })
             });
           })
